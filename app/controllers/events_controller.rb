@@ -6,13 +6,13 @@ class EventsController < ApplicationController
 
   # GET /events/1
   # GET /events/1.json
-  def index
-  	@events = Event.all.future
-  end
+  # def index
+  # 	@events = Event.all.future
+  # end
 
 
-  def show
-  end
+  # def show
+  # end
 
   # GET /events/new
   def new

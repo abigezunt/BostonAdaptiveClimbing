@@ -11,3 +11,28 @@ ul.hmenu {
 ul.hmenu li {
   display: inline;  
 }
+
+
+#header {
+
+	text-align: center;
+
+	.header-text {
+
+	}
+	.nav-bar {
+
+		li{
+			display: inline-block;
+		}
+
+	}
+
+}
+
+#page-container {
+	
+	padding: 40px;
+	max-width: 900px;
+	margin: auto;
+}

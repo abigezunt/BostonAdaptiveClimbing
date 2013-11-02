@@ -1,0 +1,26 @@
+<%= form_for @event_registration, action: 'create' do |f| %>
+
+  <% unless current_user.admin %>
+	  <%= f.hidden_field :user_id, value: current_user.id %>
+	<% else %>
+	  <div class="field">
+      <%= f.label :User %><br>
+      <%= collection_select(:user_ids, User.all.future, :id, :name) %>
+    </div>%>
+	<% end %>
+
+  <div class="field">
+    <%= f.label :Event %><br>
+    <%= collection_select(:event_ids, Event.all.future, :id, :start_time) %>
+  </div>
+
+  <%= select_tag(:role, '<option value="volunteer">Volunteer</option>
+  <option value="climber">Climber</option>
+  <option value="family_member">Family Member</option>') %>
+
+  <%= f.submit "Register" %>
+
+  <strong><%= link_to "Pay Now", new_charge_path %></strong> | 
+  <strong><%= link_to 'Delete this registration ', @course_registration, method: :delete, data: { confirm: 'Are you sure?' } %></strong>
+
+<% end %>
