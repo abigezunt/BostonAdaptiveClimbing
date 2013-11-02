@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @user.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @user.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @user.phone %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @user.age %>
+</p>
+
+<p>
+  <strong>Disabilities:</strong>
+  <%= @user.disabilities %>
+</p>
+
+<p>
+  <strong>Volunteer info:</strong>
+  <%= @user.volunteer_info %>
+</p>
+
+<p>
+  <strong>Type of participant:</strong>
+  <%= @user.type_of_participant %>
+</p>
+
+<p>
+  <strong>Bkbs member:</strong>
+  <%= @user.bkbs_member %>
+</p>
+
+<p>
+  <strong>Belay certified:</strong>
+  <%= @user.belay_certified %>
+</p>
+
+<p>
+  <strong>Emergency contact name:</strong>
+  <%= @user.emergency_contact_name %>
+</p>
+
+<p>
+  <strong>Emergency contact phone:</strong>
+  <%= @user.emergency_contact_phone %>
+</p>
+
+<p>
+  <strong>Has shoes:</strong>
+  <%= @user.has_shoes %>
+</p>
+
+<p>
+  <strong>Has harness:</strong>
+  <%= @user.has_harness %>
+</p>
+
+<p>
+  <strong>Admin:</strong>
+  <%= @user.admin %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
