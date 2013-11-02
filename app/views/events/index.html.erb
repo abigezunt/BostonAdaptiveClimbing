@@ -1,0 +1,9 @@
+<% @events.each do |event| %>
+  <%= event.name %>
+  <%= event.description %>
+  <%= event.start_time %>
+  <%= event.end_time %>
+  <%= event.location %>
+<% end %>
+
+<%#= link_to "Register", new_event_registration_path(event, current_user) %>
