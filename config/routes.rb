@@ -1,8 +1,16 @@
 BostonAdaptiveClimbing::Application.routes.draw do
   
   root to: "home#index"
+  get '/contact', to: 'home#contact'
+  get '/gallery', to: 'home#gallery'
+  get '/about', to: 'home#about'
+  get '/upcoming_events', to: 'home#upcoming_events'
+  get '/admin', to: 'home#admin'
   devise_for :users
   resources :users
+  resources :events
+  resources :event_registrations
+  resources :charges
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
