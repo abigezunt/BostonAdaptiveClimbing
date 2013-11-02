@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131102215614) do
+ActiveRecord::Schema.define(version: 20131102222846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", force: true do |t|
+    t.string   "name",        default: "Adaptive Climbing Session"
+    t.text     "description", default: "Bi-Weekly Boston Adaptive Climbing for people with physical disabilities. Day passes are half price for anyone registering under our group ($11). If you are a person with a physical disability interested in climbing, or a volunteer looking to share the experience, then sign up here! Please respect the time of our volunteers and call, email, or Facebook message to cancel if you are unable to attend after you register. Free day passes are available from time to time for those on a fixed budget. Email info@bostonadaptiveclimbing.com for availability."
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "first_name"
