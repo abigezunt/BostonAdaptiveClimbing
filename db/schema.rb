@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131102222846) do
+ActiveRecord::Schema.define(version: 20131102223600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "event_registrations", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.boolean  "paid"
+    t.string   "role"
+    t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "event_registrations", ["event_id"], name: "index_event_registrations_on_event_id", using: :btree
+  add_index "event_registrations", ["user_id"], name: "index_event_registrations_on_user_id", using: :btree
 
   create_table "events", force: true do |t|
     t.string   "name",        default: "Adaptive Climbing Session"
