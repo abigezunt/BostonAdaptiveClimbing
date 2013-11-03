@@ -11,8 +11,11 @@ class EventsController < ApplicationController
   # end
 
 
-  # def show
-  # end
+  def show
+    @volunteer_registrations = EventRegistration.where(event_id: @event.id, role: "volunteer")
+    @climber_registrations = EventRegistration.where(event_id: @event.id, role: "climber")
+    @family_member_registrations = EventRegistration.where(event_id: @event.id, role: "family_member")
+  end
 
   # GET /events/new
   def new

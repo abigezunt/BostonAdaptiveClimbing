@@ -31,24 +31,32 @@
     <%= f.label :age %><br>
     <%= f.number_field :age %>
   </div>
+
+  <div class="field">
+    <%= f.label :Climber_or_Volunteer %><br>
+    <%= select_tag(:type_of_participant, '<option value="volunteer">Volunteer</option>
+  <option value="climber">Climber</option>
+  <option value="family_member">Family Member</option>') %>
+  </div>
+
+  <% if @user.type_of_participant == "climber" %>
   <div class="field">
     <%= f.label :disabilities %><br>
     <%= f.text_area :disabilities %>
   </div>
+  <% elsif @user.type_of_participant == "volunteer" %>
   <div class="field">
     <%= f.label :volunteer_info %><br>
     <%= f.text_area :volunteer_info %>
   </div>
+  <% end %>
+
   <div class="field">
-    <%= f.label :type_of_participant %><br>
-    <%= f.text_field :type_of_participant %>
-  </div>
-  <div class="field">
-    <%= f.label :bkbs_member %><br>
+    <%= f.label :bkbs_member? %><br>
     <%= f.check_box :bkbs_member %>
   </div>
   <div class="field">
-    <%= f.label :belay_certified %><br>
+    <%= f.label :belay_certified? %><br>
     <%= f.check_box :belay_certified %>
   </div>
   <div class="field">
@@ -67,10 +75,14 @@
     <%= f.label :has_harness %><br>
     <%= f.check_box :has_harness %>
   </div>
+
+  <% if current_user.admin %>
   <div class="field">
-    <%= f.label :admin %><br>
+    <%= f.label :admin? %><br>
     <%= f.check_box :admin %>
   </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

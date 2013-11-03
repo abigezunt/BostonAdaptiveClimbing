@@ -4,7 +4,7 @@ BostonAdaptiveClimbing::Application.routes.draw do
   get '/contact', to: 'home#contact'
   get '/gallery', to: 'home#gallery'
   get '/about', to: 'home#about'
-  get '/upcoming_events', to: 'home#upcoming_events'
+  get '/upcoming_events', to: 'events#index'
   get '/admin', to: 'home#admin'
   devise_for :users
   resources :users

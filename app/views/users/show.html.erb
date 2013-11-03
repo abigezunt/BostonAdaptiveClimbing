@@ -1,13 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
+<h3>
+  <%= @user.type_of_participant %> profile:
+</h3>
 
 <p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
+  <strong>Name:</strong>
+  <%= @user.first_name %> <%= @user.last_name %>
 </p>
 
 <p>
@@ -25,28 +24,28 @@
   <%= @user.age %>
 </p>
 
+<% if @user.type_of_participant == "climber" %>
+
 <p>
   <strong>Disabilities:</strong>
   <%= @user.disabilities %>
 </p>
 
+<% elsif @user.type_of_participant == "volunteer" %>
 <p>
   <strong>Volunteer info:</strong>
   <%= @user.volunteer_info %>
 </p>
 
-<p>
-  <strong>Type of participant:</strong>
-  <%= @user.type_of_participant %>
-</p>
+<% end %>
 
 <p>
-  <strong>Bkbs member:</strong>
+  <strong>Bkbs membership status:</strong>
   <%= @user.bkbs_member %>
 </p>
 
 <p>
-  <strong>Belay certified:</strong>
+  <strong>Belay certified?</strong>
   <%= @user.belay_certified %>
 </p>
 
@@ -61,19 +60,13 @@
 </p>
 
 <p>
-  <strong>Has shoes:</strong>
+  <strong>Has climbing shoes:</strong>
   <%= @user.has_shoes %>
 </p>
 
 <p>
-  <strong>Has harness:</strong>
+  <strong>Has climbing harness:</strong>
   <%= @user.has_harness %>
 </p>
 
-<p>
-  <strong>Admin:</strong>
-  <%= @user.admin %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Edit profile', edit_user_path(@user) %>

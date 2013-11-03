@@ -1,0 +1,86 @@
+
+
+<h1><%= @event.name %></h1>
+<h3><%= @event.start_time %></h3>
+
+<% if current_user.admin %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attended?</th>
+      <th>Paid?</th>
+      <th>Name</th>
+      <th>Belay certified</th>
+      <th>Has shoes</th>
+      <th>Has harness</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <h2>Climbers</h2>
+  <tbody>
+    <% @climber_registrations.each do |event_registration| %>
+ 				<%= form_for(event_registration) do |f| %>
+ 			<tr>
+        <td><%= f.check_box :attended %></td>
+        <td><%= f.check_box :paid %></td>
+        <td><%= event_registration.user_first_name %> <%= event_registration.user_last_name %></td>
+        <td><%= event_registration.user_belay_certified %></td>
+        <td><%= event_registration.user_has_shoes %></td>
+        <td><%= event_registration.user_has_harness %></td>
+        <td><%= f.submit :update_registration%></td>
+        <td><%= link_to 'Show User Information', event_registration.user %></td>
+        <td><%= link_to 'Edit User', edit_user_path(event_registration.user) %></td>
+        <td><%= link_to 'Delete Registration', event_registration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+
+  <h2>Volunteers</h2>
+  <tbody>
+    <% @volunteer_registrations.each do |event_registration| %>
+ 				<%= form_for(event_registration) do |f| %>
+ 			<tr>
+        <td><%= f.check_box :attended %></td>
+        <td><%= f.check_box :paid %></td>
+        <td><%= event_registration.user_first_name %> <%= event_registration.user_last_name %></td>
+        <td><%= event_registration.user_belay_certified %></td>
+        <td><%= event_registration.user_has_shoes %></td>
+        <td><%= event_registration.user_has_harness %></td>
+        <td><%= f.submit :update_registration%></td>
+        <td><%= link_to 'Show User Information', event_registration.user %></td>
+        <td><%= link_to 'Edit User', edit_user_path(event_registration.user) %></td>
+        <td><%= link_to 'Delete Registration', event_registration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+
+    <h2>Family Members</h2>
+  <tbody>
+    <% @family_member_registrations.each do |event_registration| %>
+ 				<%= form_for(event_registration) do |f| %>
+ 			<tr>
+        <td><%= f.check_box :attended %></td>
+        <td><%= f.check_box :paid %></td>
+        <td><%= event_registration.user_first_name %> <%= event_registration.user_last_name %></td>
+        <td><%= event_registration.user_belay_certified %></td>
+        <td><%= event_registration.user_has_shoes %></td>
+        <td><%= event_registration.user_has_harness %></td>
+        <td><%= f.submit :update_registration%></td>
+        <td><%= link_to 'Show User Information', event_registration.user %></td>
+        <td><%= link_to 'Edit User', edit_user_path(event_registration.user) %></td>
+        <td><%= link_to 'Delete Registration', event_registration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+
+<%= link_to 'New User', new_user_path %>
+<%= link_to 'New Event Registration', new_event_registration_path %>
+
+<% end %>
